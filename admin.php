@@ -38,7 +38,7 @@
                         <th>Precio</th>
                         <th>Tipo</th>
                         <td class="actions">
-                            <a href="#">Agregar</a>
+                            <a href="adminAddItem.html">Agregar</a>
                         </td>
                     </tr>
                     <?php
@@ -51,7 +51,7 @@
                         <td><?php echo $rows['type'];?></td>
                         <td class="actions">
                             <a href="#">Modificar</a>
-                            <a href="#">Eliminar</a>
+                            <a class="btnRed" href="#">Eliminar</a>
                         </td>
                     </tr>
                     <?php

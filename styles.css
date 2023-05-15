@@ -126,9 +126,10 @@ a:active { text-decoration: none; }
     font-size: 1rem;
 }
 
-.actions a:last-of-type {
+.actions .btnRed {
     background-color: rgba(157, 0, 0, 0.84);
 }
+
 
 a:link { text-decoration: none; }
 a:visited { text-decoration: none; }
@@ -146,6 +147,10 @@ a:active { text-decoration: none; }
 
 .formBox h1 {
     margin-bottom: 4rem;
+}
+.formBox h2 {
+    text-align: left;
+    margin: 3rem;
 }
 
 .bottomView {
