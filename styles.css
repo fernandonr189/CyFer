@@ -244,3 +244,23 @@ a:active { text-decoration: none; }
     background: rgba(36, 93, 217, 0.44);
     color: #fff;
 }
+
+.formDivMod {
+    justify-content: center;
+    display: flex;
+    text-align: center;
+}
+
+.formBoxModify {
+    background-color: rgba(26, 26, 26, 0.82);
+    border-radius: 1rem;
+}
+
+.modifyForm {
+    padding: 3rem;
+    display: flex;
+}
+
+.modifyForm .productImage {
+    display: inline;
+}

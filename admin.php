@@ -50,7 +50,8 @@
                         <td><?php echo '$'.$rows['price'];?></td>
                         <td><?php echo $rows['type'];?></td>
                         <td class="actions">
-                            <a href="#">Modificar</a>
+                            <?php $id = $rows['id']?>
+                            <a href="adminModifyItem.php?id=<?php echo $id?>">Modificar</a>
                             <a class="btnRed" href="#">Eliminar</a>
                         </td>
                     </tr>

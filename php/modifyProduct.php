@@ -1,17 +1,11 @@
 <?php
-
 include 'connection.php';
 
-$id = mysqli_query($conn, "SELECT id FROM products ORDER BY id DESC limit 1");
-while ($row = $id->fetch_assoc()) {
-    $lastId = intval($row['id']) + 1;
-}
-if(intval($lastId < 1)) {
-    $lastId = 1;
-}
 
+$id = $_POST['id'];
 $target_dir = "images/";
-$target_file = $target_dir . $lastId.".png";
+$target_file = $target_dir . $id.".png";
+
 
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -23,8 +17,8 @@ $image = $target_file;
 $type = $_POST['type'];
 
 
-$sql = mysqli_query($conn, "INSERT INTO products (name, description, price, image, type, id)
-VALUES ('$name', '$description', '$price', '$image', '$type', 0)");
+$sql = mysqli_query($conn, "UPDATE products SET name = '$name', description = '$description',
+price = '$price', image = '$image', type = '$type' WHERE id = '$id'");
 
 if ($uploadOk == 0) {
   echo "Sorry, your file was not uploaded.";
