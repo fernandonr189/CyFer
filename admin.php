@@ -1,9 +1,18 @@
 <?php
 	include 'php/connection.php';
+    @$search = $_GET['search'];
 
-	$sql = "SELECT * FROM products ORDER BY id DESC";
-    $result = $conn->query($sql);
-    $conn->close();
+    if(is_null($search)) {
+        $sql = "SELECT * FROM products ORDER BY id DESC";
+        $result = $conn->query($sql);
+        $conn->close();
+    }
+    else {
+            $sql = "SELECT * FROM products WHERE name LIKE \"%$search%\" OR description LIKE
+            \"%$search%\"";
+            $result = $conn->query($sql);
+            $conn->close();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -19,20 +28,28 @@
 	<div class="viewGrid">
 		<div class="navBar">
 			<a href="index.html">Inicio</a>
-			<a href="products.html">Productos</a>
+			<a href="products.php">Productos</a>
 			<a href="location.html">Ubicación</a>
 			<a href="login.html">
 				<button class="round-btn">
 					<i class="fas fa-lock" ></i>
 				</button>
 			</a>
+			<a href="cart.php">
+                <button class="round-btn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+            </a>
 		</div>
 		<div class="mainView">
 			<div class="productHolder">
 				<h1>Productos</h1>
-
+				<form action="admin.php" method="get">
+				    <input name="search" type="text" value="<?php echo $search; ?>" ></input>
+                    <button type="submit">Buscar</button>
+				</form>
                 <table class="productsTable">
-                    <tr>
+                    <tr class = "productsTableHeader">
                         <th>Nombre</th>
                         <th>Descripción</th>
                         <th>Precio</th>
@@ -52,7 +69,8 @@
                         <td class="actions">
                             <?php $id = $rows['id']?>
                             <a href="adminModifyItem.php?id=<?php echo $id?>">Modificar</a>
-                            <a class="btnRed" href="#">Eliminar</a>
+                            <a class="btnRed" href="php/deleteElement.php?id=<?php echo
+                            $id?>">Eliminar</a>
                         </td>
                     </tr>
                     <?php

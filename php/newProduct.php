@@ -41,7 +41,7 @@ if ($sql -> connect_errno){
     die("Error al agregar" . $sql -> connect_errno);
 } else {
     echo "Agregado correctamente";
-    header("location: /admin.php");
+    header("location: /admin.php?admin=");
 }
 
 ?>

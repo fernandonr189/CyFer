@@ -11,7 +11,7 @@ if(!$sql) {
     echo "Error, usuario no encontrado";
 }
 if($user = mysqli_fetch_assoc($sql)) {
-    header("location: ../admin.php");
+    header("location: ../admin.php?search=");
 }
 
 $sql = mysqli_query($conn, "SELECT * FROM user_login_info WHERE email = '$email' AND password='$password'");

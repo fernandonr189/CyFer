@@ -86,13 +86,62 @@ a:active { text-decoration: none; }
 }
 
 .productsTable {
-    background-color: rgba(26, 26, 26, 0.82);
+    width: 100%;
+    background-color: rgb(26, 26, 26);
     border-radius: .5rem;
     padding: 1.5rem;
-    width: 100%;
+    margin-top: 3rem;
     text-align: left;
-    margin-top: 5rem;
     color: white;
+}
+
+.productsTable tr{
+    padding: 1rem;
+    margin: 3rem;
+}
+
+.productsTable td{
+    padding: 1rem;
+    margin: 3rem;
+}
+
+.clientProductsTable {
+    background-color: rgb(26, 26, 26);
+    border-radius: .5rem;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    text-align: left;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.clientProductsTable img {
+    max-height: 15rem;
+    max-width: 15rem;
+}
+
+.clientProductsTable h2 {
+    margin: 0;
+    padding-left: 1rem;
+}
+
+.productCost {
+    margin: 0;
+    padding-left: 1rem;
+}
+
+.clientProductsTable .productDescription {
+    word-wrap: break-word;
+    max-width: 30rem;
+    background-color: rgb(26, 26, 26);
+    margin: 0;
+    padding-top: 1rem;
+    padding-left: 1rem;
+}
+
+.clientProductsTable .actions {
+    padding: 2.5rem;
 }
 
 .formDiv {
@@ -103,12 +152,7 @@ a:active { text-decoration: none; }
     height: 40rem;
 }
 
-.actions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+
 
 .actions a {
     border-radius: .4rem;
@@ -263,4 +307,18 @@ a:active { text-decoration: none; }
 
 .modifyForm .productImage {
     display: inline;
+}
+
+.buyButton {
+    margin: 2rem;
+    background-color: #1a1a1a;
+}
+
+.buyButton h3 {
+    padding: 2rem;
+}
+.buyButton button {
+    border-radius: .5rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
 }
