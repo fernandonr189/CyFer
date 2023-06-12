@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,10 +13,10 @@
 <body>
 	<div class="viewGrid">
 		<div class="navBar">
-			<a href="index.html">Inicio</a>
+			<a href="index.php">Inicio</a>
 			<a href="products.php">Productos</a>
-			<a href="location.html">Ubicación</a>
-			<a href="login.html">
+			<a href="location.php">Ubicación</a>
+			<a href="login.php">
 				<button class="round-btn">
 					<i class="fas fa-lock" ></i>
 				</button>
@@ -25,8 +28,29 @@
 			</a>
 		</div>
 		<div class="mainView">
-			<div class="frame-holder">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.1979716714636!2d-103.39105798508673!3d20.702183986176227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ae4e98d5453d%3A0xc4fdd3929a2ecbd1!2sCentro%20de%20Ense%C3%B1anza%20T%C3%A9cnica%20Industrial%20(Plantel%20Colomos)!5e0!3m2!1ses-419!2smx!4v1678827937171!5m2!1ses-419!2smx" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			<div class="formDiv">
+				<div class="formBox">
+					<h1>¡Registrate!</h1>
+					<form action="php/register.php" method="post">
+						<div class="inputContainer">
+							<label for = "nameField">Nombre:</label>
+							<input name="name" type="text" id="nameField" required="">
+						</div>
+						<div class="inputContainer">
+							<label for = "lastnameField">Apellido:</label>
+							<input name="lastname" type="text" id="lastnameField" required="">
+						</div>
+						<div class="inputContainer">
+							<label for = "emailField">Email:</label>
+							<input name="email" type="text" id="emailField" required="">
+						</div>
+						<div class="inputContainer">
+							<label for = "passwordField">Contraseña:</label>
+							<input name="password" type="password" id="passwordField" required="">
+						</div>
+						<button class="f-button red">Continuar</button>
+					</form>
+				</div>
 			</div>
 		</div>
 		<footer>

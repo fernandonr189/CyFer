@@ -1,31 +1,18 @@
 <?php
-include 'php/connection.php';
+	session_start();
+	include 'php/connection.php';
+	$id = $_SESSION["User_id"];
 
-@$user_id = $_GET['id'];
+	$sql = "SELECT p.name, p.image, p.price, p.description, s.id FROM products p, shopping_kart s, user_login_info u WHERE s.product_id = p.id AND s.user_id = u.id AND u.id = $id";
 
+	$result = $conn->query($sql);
 
-$sql = "SELECT p.name, p.description, s.id, p.image, p.price, p.type FROM products p,
-shopping_kart s,
-user_login_info u
-WHERE s
-.product_id =
-p.id
- AND s.user_id = u.id";
-$result = $conn->query($sql);
+	$sql_price = "SELECT sum(p.price) FROM products p, shopping_kart s, user_login_info u WHERE s.product_id = p.id AND s.user_id = u.id AND u.id = $id";
+	$result_price = $conn->query($sql_price);
 
-$sql_price = "SELECT sum(p.price) FROM products p,
-shopping_kart s,
-user_login_info u
-WHERE s
-.product_id =
-p.id
- AND s.user_id = u.id";
-$result_price = $conn->query($sql_price);
-
-$conn->close();
+	$conn->close();
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,10 +25,10 @@ $conn->close();
 <body>
 	<div class="viewGrid">
 		<div class="navBar">
-			<a href="index.html">Inicio</a>
+			<a href="index.php">Inicio</a>
 			<a href="products.php">Productos</a>
-			<a href="location.html">Ubicación</a>
-			<a href="login.html">
+			<a href="location.php">Ubicación</a>
+			<a href="login.php">
 				<button class="round-btn">
 					<i class="fas fa-lock" ></i>
 				</button>
@@ -82,9 +69,11 @@ $conn->close();
                 while($rows=$result_price->fetch_assoc()) {
                 ?>
                     <h3><?php echo "$".$rows['sum(p.price)'];?></h3>
-                    <button>
-                        Comprar carrito
-                    </button>
+					<a href="php/sendPurchaseEmail.php">
+						<button>
+							Comprar carrito
+						</button>
+					</a>
                 <?php
                     }
                 ?>

@@ -1,17 +1,19 @@
 <?php
-include 'php/connection.php';
-@$search = $_GET['search'];
+	session_start();
+	include 'php/connection.php';
+	@$search = $_GET['search'];
 
-if(is_null($search)) {
-    $sql = "SELECT * FROM products ORDER BY id DESC";
-    $result = $conn->query($sql);
-    $conn->close();
-}
-else {
-    $sql = "SELECT * FROM products WHERE name LIKE \"%$search%\" OR description LIKE \"%$search%\"";
-    $result = $conn->query($sql);
-    $conn->close();
-}
+	if(is_null($search)) {
+		$sql = "SELECT * FROM products ORDER BY id DESC";
+		$result = $conn->query($sql);
+		$conn->close();
+	}
+	else {
+		$sql = "SELECT * FROM products WHERE name LIKE \"%$search%\" OR description LIKE \"%$search%\"";
+		$result = $conn->query($sql);
+		$conn->close();
+	}
+	$userId = $_SESSION["User_id"];
 ?>
 
 <!DOCTYPE html>
@@ -26,10 +28,10 @@ else {
 <body>
 	<div class="viewGrid">
 		<div class="navBar">
-			<a href="index.html">Inicio</a>
+			<a href="index.php">Inicio</a>
 			<a href="products.php">Productos</a>
-			<a href="location.html">Ubicación</a>
-			<a href="login.html">
+			<a href="location.php">Ubicación</a>
+			<a href="login.php">
 				<button class="round-btn">
 					<i class="fas fa-lock" ></i>
 				</button>
@@ -62,7 +64,7 @@ else {
 				        <h3><?php echo "$".$rows['price'];?></h3>
 				    </div>
 				    <div class="actions">
-                        <a href="php/addToKart.php?id=1&productId=<?php echo $rows['id'];
+                        <a href="php/addToKart.php?id=<?php echo $userId ?>&productId=<?php echo $rows['id'];
                         ?>">Agregar al carrito</a>
                     </div>
 				</div>

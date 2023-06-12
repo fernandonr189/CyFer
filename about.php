@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,10 +13,10 @@
 <body>
 	<div class="navBar">
 		<nav>
-			<a class="nav-elements" href="index.html">Inicio</a>
+			<a class="nav-elements" href="index.php">Inicio</a>
 			<a class="nav-elements" href="products.php">Productos</a>
-			<a class="nav-elements" href="location.html">Ubicación</a>
-			<a class="nav-elements" href="login.html">
+			<a class="nav-elements" href="location.php">Ubicación</a>
+			<a class="nav-elements" href="login.php">
 				<button class="round-btn">
 					<i class="fa-solid fa-lock"></i>
 				</button>

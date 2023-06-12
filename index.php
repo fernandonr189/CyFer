@@ -1,19 +1,22 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="styles.css" rel="stylesheet">
 	<link href="assets/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-	<title>CyFer - Tienda de tecnología</title>
+    <title>CyFer - Tienda de tecnología</title>
 </head>
 <body>
 	<div class="viewGrid">
 		<div class="navBar">
-			<a href="index.html">Inicio</a>
+			<a href="index.php">Inicio</a>
 			<a href="products.php">Productos</a>
-			<a href="location.html">Ubicación</a>
-			<a href="login.html">
+			<a href="location.php">Ubicación</a>
+			<a href="login.php">
 				<button class="round-btn">
 					<i class="fas fa-lock" ></i>
 				</button>
@@ -25,25 +28,32 @@
 			</a>
 		</div>
 		<div class="mainView">
-			<div class="formDiv">
-				<div class="formBox">
-					<h1>Iniciar sesión</h1>
-					<form action="php/login.php" method="post">
-						<div class="inputContainer">
-							<label for = "emailField">Email:</label>
-							<input name="email" type="text" id="emailField" required="">
-						</div>
-						<div class="inputContainer">
-							<label for = "passwordField">Contraseña:</label>
-							<input name="password" type="password" id="passwordField" required="">
-						</div>
-						<button type="Submit" class="f-button red">Iniciar Sesión</button>
-					</form>
-					<a href="register.html">
-						<button class="f-button red">¡Registrate!</button>
-					</a>
-				</div>
+			<h1>Bienvenido a CyFer</h1>
+			<h2>Las mejores soluciones de tecnología al mejor precio</h2>
+		</div>
+		<div class="bottomView">
+			<div class="box">
+				<h2>Misión</h2>
+				<i class="fa-solid fa-bullseye"></i>
+				<h4>
+					Ser una opción altamente confiable y segura a la hora de adquirir y cotizar componentes electrónicos orientados a la computadora
+				</h4>
 			</div>
+			<div class="box">
+				<h2>Vision</h2>
+				<i class="fa-solid fa-eye"></i>
+				<h4>
+					Tener un catálogo variado para todos los componentes actuales, ofreciendo la mayor cantidad de proveedores posibles
+				</h4>
+			</div>
+			<div class="box">
+				<h2>Descripción</h2>
+				<i class="fa-solid fa-circle-info"></i>
+				<h4>
+					Ser una opción altamente confiable y segura a la hora de adquirir y cotizar componentes electrónicos orientados a la computadora
+				</h4>
+			</div>
+
 		</div>
 		<footer>
 			<div class="footer-element">

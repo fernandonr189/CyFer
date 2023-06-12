@@ -16,7 +16,7 @@ if ($sql -> connect_errno){
     die("Error al registrar" . $sql -> connect_errno);
 } else {
     echo "Registrado correctamente";
-    header("location: /index.html");
+    header("location: /index.php");
 }
 
 ?>

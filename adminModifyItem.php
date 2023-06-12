@@ -28,10 +28,10 @@
 <body>
 	<div class="viewGrid">
 		<div class="navBar">
-			<a href="index.html">Inicio</a>
+			<a href="index.php">Inicio</a>
 			<a href="products.php">Productos</a>
-			<a href="location.html">Ubicación</a>
-			<a href="login.html">
+			<a href="location.php">Ubicación</a>
+			<a href="login.php">
 				<button class="round-btn">
 					<i class="fas fa-lock" ></i>
 				</button>
