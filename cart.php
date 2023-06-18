@@ -1,6 +1,12 @@
 <?php
 	session_start();
 	include 'php/connection.php';
+	$shopping_kart_icon = "
+	<a href=\"cart.php\">
+		<button class=\"round-btn\">
+			<i class=\"fa-solid fa-cart-shopping\"></i>
+		</button>
+	</a>";
 	$id = $_SESSION["User_id"];
 
 	$sql = "SELECT p.name, p.image, p.price, p.description, s.id FROM products p, shopping_kart s, user_login_info u WHERE s.product_id = p.id AND s.user_id = u.id AND u.id = $id";
@@ -33,11 +39,11 @@
 					<i class="fas fa-lock" ></i>
 				</button>
 			</a>
-			<a href="cart.php">
-                <button class="round-btn">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </button>
-            </a>
+			<?php
+			if(isset($_SESSION['User_id'])) {
+				echo $shopping_kart_icon;
+			}
+			?>
 		</div>
 		<div class="mainView">
 			<div class="productHolder">

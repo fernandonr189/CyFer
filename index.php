@@ -1,5 +1,11 @@
 <?php
 	session_start();
+	$shopping_kart_icon = "
+	<a href=\"cart.php\">
+		<button class=\"round-btn\">
+			<i class=\"fa-solid fa-cart-shopping\"></i>
+		</button>
+	</a>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,11 +27,11 @@
 					<i class="fas fa-lock" ></i>
 				</button>
 			</a>
-			<a href="cart.php">
-				<button class="round-btn">
-					<i class="fa-solid fa-cart-shopping"></i>
-				</button>
-			</a>
+			<?php
+			if(isset($_SESSION['User_id'])) {
+				echo $shopping_kart_icon;
+			}
+			?>
 		</div>
 		<div class="mainView">
 			<h1>Bienvenido a CyFer</h1>
