@@ -66,6 +66,7 @@ a:active { text-decoration: none; }
     background-color: rgba(37, 38, 40, 0.24);
     cursor: pointer;
     -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
     border: 1px solid #252628;
 }
 

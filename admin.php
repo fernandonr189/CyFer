@@ -1,12 +1,23 @@
 <?php
     session_start();
-    $shopping_kart_icon = "
+	$shopping_kart_icon = "
 	<a href=\"cart.php\">
 		<button class=\"round-btn\">
 			<i class=\"fa-solid fa-cart-shopping\"></i>
 		</button>
 	</a>";
-	include 'php/connection.php';
+	$login_icon = "
+	<a href=\"login.php\">
+		<button class=\"round-btn\">
+			<i class=\"fas fa-lock\" ></i>
+		</button>
+	</a>";
+	$logout_icon = "
+	<a href=\"php/logout.php\">
+		<button class=\"round-btn\">
+			<i class=\"fa-solid fa-right-from-bracket\" ></i>
+		</button>
+	</a>";
     @$search = $_GET['search'];
 
     if(is_null($search)) {
@@ -37,15 +48,14 @@
 		<div class="navBar">
 			<a href="index.php">Inicio</a>
 			<a href="products.php">Productos</a>
-			<a href="location.php">Ubicación</a>
-			<a href="login.php">
-				<button class="round-btn">
-					<i class="fas fa-lock" ></i>
-				</button>
-			</a>
+			<a href="location.php">Ubicación</a>s
 			<?php
 			if(isset($_SESSION['User_id'])) {
+				echo $logout_icon;
 				echo $shopping_kart_icon;
+			}
+			else {
+				echo $login_icon;
 			}
 			?>
 		</div>

@@ -6,6 +6,18 @@
 			<i class=\"fa-solid fa-cart-shopping\"></i>
 		</button>
 	</a>";
+	$login_icon = "
+	<a href=\"login.php\">
+		<button class=\"round-btn\">
+			<i class=\"fas fa-lock\" ></i>
+		</button>
+	</a>";
+	$logout_icon = "
+	<a href=\"php/logout.php\">
+		<button class=\"round-btn\">
+			<i class=\"fa-solid fa-right-from-bracket\" ></i>
+		</button>
+	</a>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,11 +34,7 @@
 			<a class="nav-elements" href="index.php">Inicio</a>
 			<a class="nav-elements" href="products.php">Productos</a>
 			<a class="nav-elements" href="location.php">Ubicación</a>
-			<a class="nav-elements" href="login.php">
-				<button class="round-btn">
-					<i class="fa-solid fa-lock"></i>
-				</button>
-			</a>
+
 				<?php
 				if(isset($_SESSION['User_id'])) {
 					echo $shopping_kart_icon;

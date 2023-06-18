@@ -1,10 +1,25 @@
 <?php
-	session_start();
 	include 'php/connection.php';
+	session_start();
+	if(isset($_SESSION["User_id"])) {
+		$userId = $_SESSION["User_id"];
+	}
 	$shopping_kart_icon = "
 	<a href=\"cart.php\">
 		<button class=\"round-btn\">
 			<i class=\"fa-solid fa-cart-shopping\"></i>
+		</button>
+	</a>";
+	$login_icon = "
+	<a href=\"login.php\">
+		<button class=\"round-btn\">
+			<i class=\"fas fa-lock\" ></i>
+		</button>
+	</a>";
+	$logout_icon = "
+	<a href=\"php/logout.php\">
+		<button class=\"round-btn\">
+			<i class=\"fa-solid fa-right-from-bracket\" ></i>
 		</button>
 	</a>";
 	@$search = $_GET['search'];
@@ -19,7 +34,6 @@
 		$result = $conn->query($sql);
 		$conn->close();
 	}
-	$userId = $_SESSION["User_id"];
 ?>
 
 <!DOCTYPE html>
@@ -37,14 +51,13 @@
 			<a href="index.php">Inicio</a>
 			<a href="products.php">Productos</a>
 			<a href="location.php">Ubicación</a>
-			<a href="login.php">
-				<button class="round-btn">
-					<i class="fas fa-lock" ></i>
-				</button>
-			</a>
 			<?php
 			if(isset($_SESSION['User_id'])) {
+				echo $logout_icon;
 				echo $shopping_kart_icon;
+			}
+			else {
+				echo $login_icon;
 			}
 			?>
 		</div>
@@ -70,8 +83,12 @@
 				        <h3><?php echo "$".$rows['price'];?></h3>
 				    </div>
 				    <div class="actions">
-                        <a href="php/addToKart.php?id=<?php echo $userId ?>&productId=<?php echo $rows['id'];
-                        ?>">Agregar al carrito</a>
+					<?php
+					if(isset($_SESSION['User_id'])) {
+						$add_to_cart_btn = "<a href=\"php/addToKart.php?id=".$userId."?>&productId=".$rows['id']."\">Agregar al carrito</a>";
+						echo $add_to_cart_btn;
+					}
+					?>
                     </div>
 				</div>
                 <?php
