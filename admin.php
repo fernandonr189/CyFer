@@ -87,7 +87,7 @@
                         <th>Precio</th>
                         <th>Tipo</th>
                         <td class="actions">
-                            <a href="adminAddItem.html">Agregar</a>
+                            <a href="adminAddItem.php">Agregar</a>
                         </td>
                     </tr>
                     <?php
