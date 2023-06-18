@@ -6,7 +6,7 @@ $id = mysqli_query($conn, "SELECT id FROM products ORDER BY id DESC limit 1");
 while ($row = $id->fetch_assoc()) {
     $lastId = intval($row['id']) + 1;
 }
-if(intval($lastId < 1)) {
+if(intval($lastId) < 1) {
     $lastId = 1;
 }
 

@@ -96,7 +96,7 @@
 				    <div class="actions">
 					<?php
 					if(isset($_SESSION['User_id'])) {
-						$add_to_cart_btn = "<a href=\"php/addToKart.php?id=".$userId."?>&productId=".$rows['id']."\">Agregar al carrito</a>";
+						$add_to_cart_btn = "<a href=\"php/addToKart.php?id=".$userId."&productId=".$rows['id']."\">Agregar al carrito</a>";
 						echo $add_to_cart_btn;
 					}
 					?>
