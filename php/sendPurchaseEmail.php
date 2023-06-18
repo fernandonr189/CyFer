@@ -61,19 +61,19 @@
     // port for Send email
     $outlook_mail->Port = 587;
     $outlook_mail->SMTPSecure = 'tls';
-    $outlook_mail->SMTPDebug = 1;
+    $outlook_mail->SMTPDebug = 0;
     $outlook_mail->SMTPAuth = true;
     $outlook_mail->Username = 'CyFer.ventas@outlook.com';
-    $outlook_mail->Password = '33656340Fer';
+    $outlook_mail->Password = '12345678Fer';
      
     $outlook_mail->From = 'CyFer.ventas@outlook.com';
-    $outlook_mail->FromName = 'CyFer.com';// frome name
+    $outlook_mail->FromName = 'CyFer.ventas@outlook.com';// frome name
     $outlook_mail->AddAddress($_SESSION['User_email'], $_SESSION['User_name']);  // Name is optional
      
     $outlook_mail->IsHTML(true); // Set email format to HTML
      
     $outlook_mail->Subject = 'Recibo de compra';
-    $outlook_mail->Body    = 'HTML_CONTENT';
+    $outlook_mail->Body    = 'Gracias por tu compra!';
     $outlook_mail->AltBody = 'This is the body in plain text for non-HTML mail clients at https://onlinecode.org/';
     $outlook_mail->AddAttachment('Factura.pdf', '', $encoding = 'base64', $type = 'application/pdf');
      
@@ -83,7 +83,8 @@
     }
     else {
         echo 'Message of Send email using Outlook SMTP server has been sent';
-        //header("location: ../index.php");
+        $sql = mysqli_query($conn, "DELETE FROM shopping_kart WHERE user_id = '$id'");
+        header("location: ../index.php");
     }
 
 ?>
