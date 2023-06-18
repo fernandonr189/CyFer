@@ -18,6 +18,12 @@
 			<i class=\"fa-solid fa-right-from-bracket\" ></i>
 		</button>
 	</a>";
+	if(isset($_SESSION['Admin_id'])) {
+		$products_page = "<a href=\"admin.php\">Productos</a>";
+	}
+	else {
+		$products_page = "<a href=\"products.php\">Productos</a>";
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,17 +38,10 @@
 	<div class="viewGrid">
 		<div class="navBar">
 			<a href="index.php">Inicio</a>
-			<a href="products.php">Productos</a>
-			<a href="location.php">Ubicación</a>
 			<?php
-			if(isset($_SESSION['User_id'])) {
-				echo $logout_icon;
-				echo $shopping_kart_icon;
-			}
-			else {
-				echo $login_icon;
-			}
+			echo $products_page;
 			?>
+			<a href="location.php">Ubicación</a>
 		</div>
 		<div class="mainView">
 			<div class="formDiv">

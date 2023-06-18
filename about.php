@@ -18,6 +18,12 @@
 			<i class=\"fa-solid fa-right-from-bracket\" ></i>
 		</button>
 	</a>";
+	if(isset($_SESSION['Admin_id'])) {
+		$products_page = "<a href=\"admin.php\">Productos</a>";
+	}
+	else {
+		$products_page = "<a href=\"products.php\">Productos</a>";
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,14 +38,21 @@
 	<div class="navBar">
 		<nav>
 			<a class="nav-elements" href="index.php">Inicio</a>
-			<a class="nav-elements" href="products.php">Productos</a>
+			<?php
+			echo $products_page;
+			?>
 			<a class="nav-elements" href="location.php">Ubicación</a>
-
-				<?php
+			<?php
+			if(isset($_SESSION['User_id']) || isset($_SESSION['Admin_id'])) {
+				echo $logout_icon;
 				if(isset($_SESSION['User_id'])) {
 					echo $shopping_kart_icon;
 				}
-				?>
+			}
+			else {
+				echo $login_icon;
+			}
+			?>
 		</nav>
 	</div>
 	<div class="cover">

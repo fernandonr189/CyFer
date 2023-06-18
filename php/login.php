@@ -11,9 +11,9 @@
         echo "Error, usuario no encontrado";
     }
     if($user = mysqli_fetch_assoc($sql)) {
-        $_SESSION["User_email"] = $email;
-        $_SESSION["User_name"] = $user["name"]." ".$user["last_name"];
-        $_SESSION["User_id"] = $user['id'];
+        $_SESSION["Admin_email"] = $email;
+        $_SESSION["Admin_name"] = $user["name"]." ".$user["last_name"];
+        $_SESSION["Admin_id"] = $user['id'];
         header("location: ../admin.php?search=");
     }
 
